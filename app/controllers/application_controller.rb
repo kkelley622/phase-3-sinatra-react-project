@@ -28,4 +28,13 @@ class ApplicationController < Sinatra::Base
     patient.to_json
   end
 
+  post "/physicians" do 
+    physician = Physician.create(
+      name: params[:name],
+      title: params[:title],
+      specialty: params[:specialty]
+    )
+    physician.to_json
+  end
+
 end
