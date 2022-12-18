@@ -7,4 +7,9 @@ class ApplicationController < Sinatra::Base
     patients.to_json
   end
 
+  get "/physicians" do 
+    physicians = Physician.all
+    physicians.to_json(include: :patients)
+  end
+
 end
