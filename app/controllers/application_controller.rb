@@ -12,4 +12,9 @@ class ApplicationController < Sinatra::Base
     physicians.to_json(include: :patients)
   end
 
+  get "/case_managers" do 
+    case_managers = CaseManager.all
+    case_managers.to_json(include: :patients)
+  end
+
 end
