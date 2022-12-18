@@ -6,17 +6,12 @@ class ApplicationController < Sinatra::Base
     patients = Patient.all
     patients.to_json
   end
-
-  get "/physicians" do 
-    physicians = Physician.all
-    physicians.to_json(include: :patients)
+  
+  get "/patients/:id" do 
+    patient = Patient.find(params[:id])
+    patient.to_json(include: :physician)
   end
-
-  get "/case_managers" do 
-    case_managers = CaseManager.all
-    case_managers.to_json(include: :patients)
-  end
-
+  
   post "/patients" do 
     patient = Patient.create(
       name: params[:name], 
@@ -28,6 +23,16 @@ class ApplicationController < Sinatra::Base
     patient.to_json
   end
 
+  get "/physicians" do 
+    physicians = Physician.all
+    physicians.to_json
+  end
+  
+  get "/physicians/:id" do 
+    physician = Physician.find(params[:id])
+    physician.to_json(include: :patients)
+  end
+  
   post "/physicians" do 
     physician = Physician.create(
       name: params[:name],
@@ -35,6 +40,16 @@ class ApplicationController < Sinatra::Base
       specialty: params[:specialty]
     )
     physician.to_json
+  end
+
+  get "/case_managers" do 
+    case_managers = CaseManager.all
+    case_managers.to_json
+  end
+
+  get "/case_managers/:id" do 
+    case_manager = CaseManager.find(params[:id])
+    case_manager.to_json(include: :patients)
   end
 
   post "/case_managers" do 
