@@ -37,4 +37,12 @@ class ApplicationController < Sinatra::Base
     physician.to_json
   end
 
+  post "/case_managers" do 
+    case_manager = CaseManager.create(
+      name: params[:name],
+      title: params[:title]
+    )
+    case_manager.to_json
+  end
+
 end
