@@ -1,6 +1,5 @@
-class Patient < ActiveRecord::Base 
-    belongs_to :physician 
-    belongs_to :case_manager
+class Patient < ActiveRecord::Base  
     has_many :appointments 
+    has_many :physicians, through: :appointments
     
 end
