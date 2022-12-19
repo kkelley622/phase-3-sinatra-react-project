@@ -2,6 +2,11 @@ class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
   # Add your routes here
+  get "/appointments" do 
+    appointments = Appointment.all
+    appointments.to_json 
+  end
+
   get "/patients" do
     patients = Patient.all
     patients.to_json
@@ -16,9 +21,7 @@ class ApplicationController < Sinatra::Base
     patient = Patient.create(
       name: params[:name], 
       age: params[:age],
-      diagnosis: params[:diagnosis],
-      physician_id: params[:physician_id],
-      case_manager_id: params[:case_manager_id]
+      diagnosis: params[:diagnosis]
     )
     patient.to_json
   end
@@ -42,22 +45,5 @@ class ApplicationController < Sinatra::Base
     physician.to_json
   end
 
-  get "/case_managers" do 
-    case_managers = CaseManager.all
-    case_managers.to_json
-  end
-
-  get "/case_managers/:id" do 
-    case_manager = CaseManager.find(params[:id])
-    case_manager.to_json(include: :patients)
-  end
-
-  post "/case_managers" do 
-    case_manager = CaseManager.create(
-      name: params[:name],
-      title: params[:title]
-    )
-    case_manager.to_json
-  end
 
 end
