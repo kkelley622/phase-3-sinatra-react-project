@@ -10,24 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_19_024703) do
+ActiveRecord::Schema.define(version: 2022_12_20_233403) do
 
-  create_table "appointments", force: :cascade do |t|
-    t.datetime "datetime"
-    t.integer "patient_id"
-    t.integer "physician_id"
+  create_table "nurses", force: :cascade do |t|
+    t.string "firstname"
+    t.string "lastname"
+    t.boolean "shift"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "patients", force: :cascade do |t|
-    t.string "name"
+    t.string "firstname"
+    t.string "lastname"
     t.integer "age"
+    t.integer "room_number"
     t.string "diagnosis"
-  end
-
-  create_table "physicians", force: :cascade do |t|
-    t.string "name"
-    t.string "title"
-    t.string "specialty"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

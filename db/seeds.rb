@@ -1,4 +1,13 @@
-puts "🌱 Seeding spices..."
+puts "Destroying seeds..."
+
+Physician.all.destroy 
+Patient.all.destroy 
+Appointment.all.destroy 
+Nurse.all.destroy 
+
+puts "Seeds destroyed"
+
+
 
 # Seed your database here
 Physician.create(name: "Andrew Hendifar", title: "MD", specialty: "Oncologist");
@@ -18,6 +27,7 @@ Physician.create(name: "Mitchel Berry", title: "LCPC", specialty: "Psychiatry");
 Physician.create(name: "Chris Traeger", title: "MD", specialty: "Phsychiatry");
 
 
+puts "Seeding patients..."
 
 Patient.create(name: "Abby Macias", age: 85, diagnosis: "Bladder Cancer");
 Patient.create(name: "Donald Palmer", age: 43, diagnosis: "Renal Cancer");
