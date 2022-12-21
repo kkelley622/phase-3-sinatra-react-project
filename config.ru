@@ -12,6 +12,6 @@ end
 use Rack::JSONBodyParser
 
 # Our application
+use NurseController 
 use PatientController
-use NurseController
 run ApplicationController

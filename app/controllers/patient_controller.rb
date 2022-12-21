@@ -1,12 +1,12 @@
 class PatientController < ApplicationController
     get "/patients" do
         patients = Patient.all
-        patients.to_json
+        patients.to_json(include: :nurse)
       end
       
       get "/patients/:id" do 
         patient = Patient.find(params[:id])
-        patient.to_json(include: :physician)
+        patient.to_json
       end
       
       post "/patients" do 
