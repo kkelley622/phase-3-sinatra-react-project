@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_20_233403) do
+ActiveRecord::Schema.define(version: 2022_12_21_000040) do
 
   create_table "nurses", force: :cascade do |t|
     t.string "firstname"
     t.string "lastname"
-    t.boolean "shift"
+    t.string "shift"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "phone_ext"
   end
 
   create_table "patients", force: :cascade do |t|
