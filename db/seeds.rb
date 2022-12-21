@@ -3,12 +3,11 @@
 
 
 # Seed your database here
+puts "Destroying all data"
 
-Patient.all.destroy
-Nurse.all.destroy
-Appointment.all.destroy
-Physician.all.destroy 
-
+Patient.destroy_all
+Nurse.destroy_all 
+ 
 puts "Seeding nurses..."
 
 Nurse.create(firstname: "Kevin", lastname: "Kelley", shift: "day", phone_ext: 789);
