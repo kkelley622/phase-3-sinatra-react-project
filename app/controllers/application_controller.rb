@@ -3,6 +3,6 @@ class ApplicationController < Sinatra::Base
   
   # Add your routes here
   get "/" do 
-    "Welcome to my app"
+    "Go to /patients in order to see a list of patient objects. Go to /nurses in order to see a list of nurse objects"
   end
 end

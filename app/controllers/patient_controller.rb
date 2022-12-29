@@ -31,7 +31,7 @@ class PatientController < ApplicationController
     delete "/patients/:id" do 
       find_patient
       @patient.destroy
-      { message: "#{@patient.firstname} was destroyed" }.to_json 
+      @patient.to_json
     end
       
     private
