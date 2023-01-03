@@ -1,4 +1,6 @@
 # Nurse Patient Assignment Project Backend
+
+Here is a link to my github repository for the frontend REACT application: https://github.com/kkelley622/phase-3-project-frontend
  
 ## Introduction
 
@@ -6,8 +8,8 @@ I built this basic web API with Sinatra and Active Record for my phase-3 project
 
 ## Instructions
 
-- Navigate to this folders directory. (backend)
-- Run 'bundle exec rake server'. (This will launch the server on localhost:9292)
+- Navigate to this folder's directory. (backend)
+- Run 'bundle exec rake server' in the terminal. (This will launch the server on localhost:9292)
 - Navigate to http://localhost:9292 in the web browser to view the API. Navigate to http://localhost:9292/nurses to view nurses data, and to http://localhost:9292/patients to view patients data.
 - Interact with the REACT application and observe changes to the backend API.
 
